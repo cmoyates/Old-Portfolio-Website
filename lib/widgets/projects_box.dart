@@ -33,6 +33,13 @@ class ProjectsBox extends StatelessWidget {
       linkToProject: "https://meme-generator-bb7e7.web.app/",
       linkToSourceCode: "https://github.com/cmoyates/Meme-Generator",
     ),
+    ProjectNode(
+      name: "Portfolio Website",
+      imgDir: "assets/images/pw.jpg",
+      description:
+          "This is my personal portfolio website.",
+      linkToSourceCode: "https://github.com/cmoyates/Portfolio-Website",
+    ),
   ];
 
   @override
@@ -70,7 +77,7 @@ class ProjectsBox extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Flexible(
+                            (projects[index].linkToProject == null) ? Flexible(flex: 1, child: Text("You're here right now!")) : Flexible(
                               flex: 1,
                               child: FlatButton(
                                 materialTapTargetSize:
