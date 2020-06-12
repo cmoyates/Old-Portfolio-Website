@@ -1,5 +1,5 @@
 # Portfolio Website
 
-This is the sourcecode for my personal website.
+This is the source code for my personal website.
 
 See it live here: https://CristopherYates.ca/
