@@ -2,7 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/project_node.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProjectsBox extends StatelessWidget {
+class ProjectsBox extends StatefulWidget {
+  final toggleScreen;
+
+
+  const ProjectsBox({Key key, this.toggleScreen}) : super(key: key);
+
+  @override
+  _ProjectsBoxState createState() => _ProjectsBoxState(toggleScreen);
+}
+
+class _ProjectsBoxState extends State<ProjectsBox> {
+  _ProjectsBoxState(this.toggleScreen);
+
   Future<void> _launchURL(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
@@ -13,9 +25,22 @@ class ProjectsBox extends StatelessWidget {
 
   final VoidCallback toggleScreen;
 
-  const ProjectsBox({Key key, this.toggleScreen}) : super(key: key);
-
   static List<ProjectNode> projects = [
+    ProjectNode(
+      name: "Genetic Evolution Demo",
+      imgDir: "assets/images/ged.jpg",
+      description: "This is a small game made with Unity that demonstrates Genetic Evolution.",
+      linkToProject: "https://cmoyates.github.io/Genetic-Evolution-Demo-Build/",
+      linkToSourceCode: "https://github.com/cmoyates/Genetic-Evolution-Demo",
+    ),
+    ProjectNode(
+      name: "Portfolio Website",
+      imgDir: "assets/images/pw.jpg",
+      description:
+          "This is my personal portfolio website.",
+      altText: "You're here right now!",
+      linkToSourceCode: "https://github.com/cmoyates/Portfolio-Website",
+    ),
     ProjectNode(
       name: "Sorting Algorithm Visualizer",
       imgDir: "assets/images/sav.jpg",
@@ -33,14 +58,26 @@ class ProjectsBox extends StatelessWidget {
       linkToProject: "https://meme-generator-bb7e7.web.app/",
       linkToSourceCode: "https://github.com/cmoyates/Meme-Generator",
     ),
-    ProjectNode(
-      name: "Portfolio Website",
-      imgDir: "assets/images/pw.jpg",
-      description:
-          "This is my personal portfolio website.",
-      linkToSourceCode: "https://github.com/cmoyates/Portfolio-Website",
-    ),
   ];
+
+  List<Image> projectImages = [];
+
+  @override
+  void initState() {
+    super.initState();
+    for (var i = 0; i < projects.length; i++) {
+      projectImages.add(Image.asset(projects[i].imgDir));
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    for (var i = 0; i < projectImages.length; i++) {
+      precacheImage(projectImages[i].image, context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +105,7 @@ class ProjectsBox extends StatelessWidget {
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Image(
-                          image: AssetImage(projects[index].imgDir),
+                          image: projectImages[index].image,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -77,7 +114,7 @@ class ProjectsBox extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            (projects[index].linkToProject == null) ? Flexible(flex: 1, child: Text("You're here right now!")) : Flexible(
+                            (projects[index].linkToProject == null) ? Flexible(flex: 1, child: Text(projects[index].altText)) : Flexible(
                               flex: 1,
                               child: FlatButton(
                                 materialTapTargetSize:
@@ -111,8 +148,9 @@ class ProjectsBox extends StatelessWidget {
         ),
         Flexible(
           flex: 1,
-          fit: FlexFit.tight,
+          fit: FlexFit.loose,
           child: FlatButton(
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               onPressed: () {
                 toggleScreen();
               },

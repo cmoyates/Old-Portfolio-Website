@@ -7,13 +7,12 @@ class ProjectNode extends StatelessWidget {
   final String description;
   final String linkToProject;
   final String linkToSourceCode;
+  final String altText;
 
-  const ProjectNode({Key key, this.name, this.description, this.linkToProject, this.linkToSourceCode, this.imgDir}) : super(key: key);
+  const ProjectNode({Key key, this.name, this.description, this.linkToProject, this.linkToSourceCode, this.imgDir, this.altText}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Container();
   }
 }

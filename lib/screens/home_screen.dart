@@ -52,7 +52,7 @@ class HomeScreenState extends State<HomeScreen> {
         body: Center(
           child: AnimatedContainer(
             duration: Duration(milliseconds: 400),
-            curve: Curves.linearToEaseOut,
+            curve: Curves.easeOutCubic,
             margin: EdgeInsets.all(20),
             padding: EdgeInsets.all(20),
             width: containerWidth,
