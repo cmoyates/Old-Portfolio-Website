@@ -97,6 +97,7 @@ class _ProjectsBoxState extends State<ProjectsBox> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Container(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,7 +107,7 @@ class _ProjectsBoxState extends State<ProjectsBox> {
           fit: FlexFit.tight,
           child: GridView.builder(
               gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: screenWidth~/400),
               itemCount: projects.length,
               itemBuilder: (context, index) {
                 return Card(
@@ -132,15 +133,6 @@ class _ProjectsBoxState extends State<ProjectsBox> {
                           children: <Widget>[
                             (projects[index].linkToProject == null) ? Flexible(flex: 1, child: Text(projects[index].altText)) : Flexible(
                               flex: 1,
-                              /*child: FlatButton(
-                                materialTapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap,
-                                onPressed: () async {
-                                  await _launchURL(
-                                      projects[index].linkToProject);
-                                },
-                                child: Text("View the Project"),
-                              ),*/
                               child: TextButton(
                                 style: flatButtonStyle,
                                 onPressed: () async {
@@ -152,15 +144,6 @@ class _ProjectsBoxState extends State<ProjectsBox> {
                             ),
                             Flexible(
                               flex: 1,
-                              /*child: FlatButton(
-                                materialTapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap,
-                                onPressed: () async {
-                                  await _launchURL(
-                                      projects[index].linkToSourceCode);
-                                },
-                                child: Text("View the Source Code"),
-                              ),*/
                               child: TextButton(
                                 style: flatButtonStyle,
                                 onPressed: () async {
