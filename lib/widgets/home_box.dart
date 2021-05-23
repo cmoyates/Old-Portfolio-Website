@@ -13,6 +13,16 @@ class HomeBox extends StatelessWidget {
 
   final VoidCallback toggleScreen;
 
+  final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+    onPrimary: Colors.black87,
+    primary: Colors.white,
+    minimumSize: Size(88, 36),
+    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 18.0),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(2)),
+    ),
+  );
+
   HomeBox({this.toggleScreen});
   
   @override
@@ -30,22 +40,22 @@ class HomeBox extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            RaisedButton(
-              color: Colors.white,
+            ElevatedButton(
+              style: raisedButtonStyle,
               onPressed: () async {
                 toggleScreen();
               },
-              child: Text("Projects"),
+              child: Text("Projects")
             ),
-            RaisedButton(
-              color: Colors.white,
+            ElevatedButton(
+              style: raisedButtonStyle,
               onPressed: () {
                 _launchURL("https://github.com/cmoyates");
               },
               child: Text("Github"),
             ),
-            RaisedButton(
-              color: Colors.white,
+            ElevatedButton(
+              style: raisedButtonStyle,
               onPressed: () {
                 
               },

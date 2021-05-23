@@ -25,7 +25,23 @@ class _ProjectsBoxState extends State<ProjectsBox> {
 
   final VoidCallback toggleScreen;
 
+  final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+    primary: Colors.black87,
+    minimumSize: Size(88, 36),
+    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 18.0),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(2.0)),
+    ),
+  );
+
   static List<ProjectNode> projects = [
+    ProjectNode(
+      name: "Game and Bot",
+      imgDir: "assets/images/gab.jpg",
+      description: "A game and a bot to play it!\nUses PCG and Vector Field pathfinding.",
+      linkToProject: "https://cmoyates.github.io/Game-and-Bot-Build/",
+      linkToSourceCode: "https://github.com/cmoyates/Game-and-Bot",
+    ),
     ProjectNode(
       name: "Genetic Evolution Demo",
       imgDir: "assets/images/ged.jpg",
@@ -116,9 +132,17 @@ class _ProjectsBoxState extends State<ProjectsBox> {
                           children: <Widget>[
                             (projects[index].linkToProject == null) ? Flexible(flex: 1, child: Text(projects[index].altText)) : Flexible(
                               flex: 1,
-                              child: FlatButton(
+                              /*child: FlatButton(
                                 materialTapTargetSize:
                                     MaterialTapTargetSize.shrinkWrap,
+                                onPressed: () async {
+                                  await _launchURL(
+                                      projects[index].linkToProject);
+                                },
+                                child: Text("View the Project"),
+                              ),*/
+                              child: TextButton(
+                                style: flatButtonStyle,
                                 onPressed: () async {
                                   await _launchURL(
                                       projects[index].linkToProject);
@@ -128,9 +152,17 @@ class _ProjectsBoxState extends State<ProjectsBox> {
                             ),
                             Flexible(
                               flex: 1,
-                              child: FlatButton(
+                              /*child: FlatButton(
                                 materialTapTargetSize:
                                     MaterialTapTargetSize.shrinkWrap,
+                                onPressed: () async {
+                                  await _launchURL(
+                                      projects[index].linkToSourceCode);
+                                },
+                                child: Text("View the Source Code"),
+                              ),*/
+                              child: TextButton(
+                                style: flatButtonStyle,
                                 onPressed: () async {
                                   await _launchURL(
                                       projects[index].linkToSourceCode);
@@ -149,8 +181,8 @@ class _ProjectsBoxState extends State<ProjectsBox> {
         Flexible(
           flex: 1,
           fit: FlexFit.loose,
-          child: FlatButton(
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          child: TextButton(
+              style: flatButtonStyle,
               onPressed: () {
                 toggleScreen();
               },
