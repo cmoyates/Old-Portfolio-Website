@@ -53,6 +53,7 @@ flutter:
     - assets/images/pw.jpg
     - assets/images/ged.jpg
     - assets/images/gab.jpg
+    - assets/images/gdmc.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

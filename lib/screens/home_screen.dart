@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/home_box.dart';
 import 'package:portfolio/widgets/projects_box.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/widgets/contact_box.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,9 +10,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  void ToggleScreen() {
+  void ToggleScreen(int screenNum) {
     setState(() {
-      isContainerBig = !isContainerBig;
+      /*isContainerBig = !isContainerBig;
       if (!isContainerBig) {
         containerWidth = 400;
         containerHeight = 300;
@@ -20,6 +21,24 @@ class HomeScreenState extends State<HomeScreen> {
         containerWidth = 1600;
         containerHeight = 900;
         displayedWidget = projectsBox;
+      }*/
+      switch (screenNum) {
+        case 0:
+          containerWidth = 400;
+          containerHeight = 300;
+          displayedWidget = homeBox;
+          break;
+        case 1:
+          containerWidth = 1600;
+          containerHeight = 900;
+          displayedWidget = projectsBox;
+          break;
+        case 2:
+          containerWidth = 600;
+          containerHeight = 900;
+          displayedWidget = contactBox;
+          break;
+        default:
       }
     });
   }
@@ -29,18 +48,23 @@ class HomeScreenState extends State<HomeScreen> {
   bool isContainerBig = false;
   HomeBox homeBox;
   ProjectsBox projectsBox;
+  ContactBox contactBox;
   Widget displayedWidget;
 
   @override
   void initState() {
     setState(() {
       homeBox = HomeBox(
-        toggleScreen: () => {ToggleScreen()},
+        toggleScreenProjects: () => {ToggleScreen(1)},
+        toggleScreenContact: () => {ToggleScreen(2)}
       );
       displayedWidget = homeBox;
     });
     projectsBox = ProjectsBox(
-      toggleScreen: () => {ToggleScreen()},
+      toggleScreen: () => {ToggleScreen(0)},
+    );
+    contactBox = ContactBox(
+      toggleScreen: () => {ToggleScreen(0)},
     );
     super.initState();
   }

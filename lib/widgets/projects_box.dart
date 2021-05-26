@@ -58,6 +58,15 @@ class _ProjectsBoxState extends State<ProjectsBox> {
       linkToSourceCode: "https://github.com/cmoyates/Portfolio-Website",
     ),
     ProjectNode(
+      name: "GDMC Entry",
+      imgDir: "assets/images/gdmc.jpg",
+      description:
+          "This is my entry into the 2021 GDMC Competition.",
+      altText: "Download the Project",
+      linkToProject: "https://github.com/cmoyates/GDMC-Entry/archive/refs/heads/main.zip",
+      linkToSourceCode: "https://github.com/cmoyates/GDMC-Entry",
+    ),
+    ProjectNode(
       name: "Sorting Algorithm Visualizer",
       imgDir: "assets/images/sav.jpg",
       description:
@@ -139,7 +148,7 @@ class _ProjectsBoxState extends State<ProjectsBox> {
                                   await _launchURL(
                                       projects[index].linkToProject);
                                 },
-                                child: Text("View the Project"),
+                                child: Text((projects[index].altText == null) ? "View the Project" : projects[index].altText),
                               ),
                             ),
                             Flexible(

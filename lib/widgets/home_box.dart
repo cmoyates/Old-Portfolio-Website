@@ -11,7 +11,8 @@ class HomeBox extends StatelessWidget {
     }
   }
 
-  final VoidCallback toggleScreen;
+  final VoidCallback toggleScreenProjects;
+  final VoidCallback toggleScreenContact;
 
   final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
     onPrimary: Colors.black87,
@@ -23,7 +24,7 @@ class HomeBox extends StatelessWidget {
     ),
   );
 
-  HomeBox({this.toggleScreen});
+  HomeBox({this.toggleScreenProjects, this.toggleScreenContact});
   
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class HomeBox extends StatelessWidget {
             ElevatedButton(
               style: raisedButtonStyle,
               onPressed: () async {
-                toggleScreen();
+                toggleScreenProjects();
               },
               child: Text("Projects")
             ),
@@ -57,7 +58,7 @@ class HomeBox extends StatelessWidget {
             ElevatedButton(
               style: raisedButtonStyle,
               onPressed: () {
-                
+                toggleScreenContact();
               },
               child: Text("Contact"),
             ),
