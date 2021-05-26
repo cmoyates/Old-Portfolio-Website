@@ -57,13 +57,13 @@ class _ProjectsBoxState extends State<ProjectsBox> {
       linkToSourceCode: "https://github.com/cmoyates/Portfolio-Website",
     ),
     ProjectNode(
-      name: "GDMC Entry",
+      name: "Minecraft Settlement Generator",
       imgDir: "assets/images/gdmc.jpg",
       description:
           "This is my entry into the 2021 GDMC Competition.",
       altText: "Download the Project",
-      linkToProject: "https://github.com/cmoyates/GDMC-Entry/archive/refs/heads/main.zip",
-      linkToSourceCode: "https://github.com/cmoyates/GDMC-Entry",
+      linkToProject: "https://github.com/cmoyates/Minecraft-Settlement-Generator/archive/refs/heads/main.zip",
+      linkToSourceCode: "https://github.com/cmoyates/Minecraft-Settlement-Generator",
     ),
     ProjectNode(
       name: "Sorting Algorithm Visualizer",
