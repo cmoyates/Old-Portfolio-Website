@@ -57,6 +57,14 @@ class _ProjectsBoxState extends State<ProjectsBox> {
       linkToSourceCode: "https://github.com/cmoyates/Portfolio-Website",
     ),
     ProjectNode(
+      name: "Closet App",
+      imgDir: "assets/images/ca.jpg",
+      description: "This is an app made to catalog your closet and plan outfits.",
+      altText: "Download the Project",
+      linkToProject: "https://github.com/cmoyates/Closet-App/releases/download/v1.0/closet-app.apk",
+      linkToSourceCode: "https://github.com/cmoyates/Closet-App",
+    ),
+    ProjectNode(
       name: "Minecraft Settlement Generator",
       imgDir: "assets/images/gdmc.jpg",
       description:

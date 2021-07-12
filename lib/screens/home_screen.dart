@@ -12,16 +12,6 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   void ToggleScreen(int screenNum) {
     setState(() {
-      /*isContainerBig = !isContainerBig;
-      if (!isContainerBig) {
-        containerWidth = 400;
-        containerHeight = 300;
-        displayedWidget = homeBox;
-      } else {
-        containerWidth = 1600;
-        containerHeight = 900;
-        displayedWidget = projectsBox;
-      }*/
       switch (screenNum) {
         case 0:
           containerWidth = 400;
