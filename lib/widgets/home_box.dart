@@ -31,7 +31,7 @@ class HomeBox extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Text(
+        SelectableText(
           "Hi, my name is Cris.",
           style: TextStyle(
             fontSize: 30,

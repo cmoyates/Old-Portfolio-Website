@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/home_box.dart';
 import 'package:portfolio/widgets/projects_box.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/widgets/project_node.dart';
 import 'package:portfolio/widgets/contact_box.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  void ToggleScreen(int screenNum) {
+  void toggleScreen(int screenNum) {
     setState(() {
       switch (screenNum) {
         case 0:
@@ -25,7 +25,7 @@ class HomeScreenState extends State<HomeScreen> {
           break;
         case 2:
           containerWidth = 600;
-          containerHeight = 900;
+          containerHeight = 300;
           displayedWidget = contactBox;
           break;
         default:
@@ -45,18 +45,27 @@ class HomeScreenState extends State<HomeScreen> {
   void initState() {
     setState(() {
       homeBox = HomeBox(
-        toggleScreenProjects: () => {ToggleScreen(1)},
-        toggleScreenContact: () => {ToggleScreen(2)}
+        toggleScreenProjects: () => {toggleScreen(1)},
+        toggleScreenContact: () => {toggleScreen(2)}
       );
       displayedWidget = homeBox;
     });
     projectsBox = ProjectsBox(
-      toggleScreen: () => {ToggleScreen(0)},
+      toggleScreen: () => {toggleScreen(0)},
     );
     contactBox = ContactBox(
-      toggleScreen: () => {ToggleScreen(0)},
+      toggleScreen: () => {toggleScreen(0)},
     );
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    for (var i = 0; i < projects.length; i++) {
+      precacheImage(new AssetImage(projects[i].imgDir), context);
+    }
   }
 
   @override

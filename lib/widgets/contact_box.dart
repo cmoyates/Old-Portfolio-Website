@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactBox extends StatelessWidget {
   ContactBox({Key key, this.toggleScreen}) : super(key: key);
@@ -27,7 +29,36 @@ class ContactBox extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           ),
-          SelectableText("Email: cmoyates@gmail.com"),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SelectableText("Email:    cmoyates@gmail.com"),
+              SelectableText.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(text: "LinkedIn: "),
+                    TextSpan(
+                        text: "https://www.linkedin.com/in/cristopher-yates/",
+                        mouseCursor: SystemMouseCursors.click,
+                        style: TextStyle(
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                        ),
+                        recognizer: TapGestureRecognizer()..onTap = () async {
+                          var url = "https://www.linkedin.com/in/cristopher-yates/";
+                          if (await canLaunch(url)) {
+                            launch(url);
+                          }
+                          else {
+                            throw "Could not load $url";
+                          }
+                        },
+                      )
+                  ]
+                )
+              ),
+            ]
+          ),
           TextButton(
             style: flatButtonStyle,
             onPressed: toggleScreen, 
