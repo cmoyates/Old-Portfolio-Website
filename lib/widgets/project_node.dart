@@ -58,6 +58,15 @@ List<ProjectNode> projects = [
     linkToSourceCode: "https://github.com/cmoyates/Minecraft-Settlement-Generator",
   ),
   ProjectNode(
+    name: "MUN Info Discord Bot",
+    imgDir: "assets/images/midb.jpg",
+    description:
+        "You give the bot a MUN CS course number and it gives you info on that course!",
+    altText: "Add to a Server",
+    linkToProject: "https://discord.com/api/oauth2/authorize?client_id=875977879064834049&permissions=8&scope=bot",
+    linkToSourceCode: "https://github.com/cmoyates/MUN-Info-Discord-Bot",
+  ),
+  ProjectNode(
     name: "Sorting Algorithm Visualizer",
     imgDir: "assets/images/sav.jpg",
     description:
