@@ -41,6 +41,13 @@ List<ProjectNode> projects = [
     linkToSourceCode: "https://github.com/cmoyates/Portfolio-Website",
   ),
   ProjectNode(
+    name: "Social Network",
+    imgDir: "assets/images/sn.jpg",
+    description: "This is a simple social network made with React and Material UI.",
+    linkToProject: "https://cmoyates.github.io/Social-Network-Frontend/",
+    linkToSourceCode: "https://github.com/cmoyates/Social-Network-Frontend",
+  ),
+  ProjectNode(
     name: "Closet App",
     imgDir: "assets/images/ca.jpg",
     description: "This is an app made to catalog your closet and plan outfits.",
