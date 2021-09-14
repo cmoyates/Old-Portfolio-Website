@@ -19,6 +19,13 @@ class ProjectNode extends StatelessWidget {
 
 List<ProjectNode> projects = [
   ProjectNode(
+    name: "Social Network",
+    imgDir: "assets/images/sn.jpg",
+    description: "This is a simple social network made with React and Material UI.",
+    linkToProject: "https://cmoyates.github.io/Social-Network-Frontend/",
+    linkToSourceCode: "https://github.com/cmoyates/Social-Network-Frontend",
+  ),
+  ProjectNode(
     name: "Game and Bot",
     imgDir: "assets/images/gab.jpg",
     description: "A game and a bot to play it!\nUses PCG and Vector Field pathfinding.",
@@ -39,13 +46,6 @@ List<ProjectNode> projects = [
         "This is my personal portfolio website.",
     altText: "You're here right now!",
     linkToSourceCode: "https://github.com/cmoyates/Portfolio-Website",
-  ),
-  ProjectNode(
-    name: "Social Network",
-    imgDir: "assets/images/sn.jpg",
-    description: "This is a simple social network made with React and Material UI.",
-    linkToProject: "https://cmoyates.github.io/Social-Network-Frontend/",
-    linkToSourceCode: "https://github.com/cmoyates/Social-Network-Frontend",
   ),
   ProjectNode(
     name: "Closet App",
