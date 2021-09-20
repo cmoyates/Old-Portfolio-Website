@@ -53,7 +53,7 @@ class HomeBox extends StatelessWidget {
               onPressed: () {
                 _launchURL("https://github.com/cmoyates");
               },
-              child: Text("Github"),
+              child: Text("GitHub"),
             ),
             ElevatedButton(
               style: raisedButtonStyle,
