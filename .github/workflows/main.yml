@@ -24,7 +24,7 @@ jobs:
     - name: Build
       run: flutter build web
     - name: Deploy to Firebase
-      uses: w9jds/firebase-action@master
+      uses: joinflux/firebase-tools@v9.16.0
       with:
         args: deploy --only hosting
       env: 
