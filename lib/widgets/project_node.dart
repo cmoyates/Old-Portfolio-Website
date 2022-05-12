@@ -19,6 +19,13 @@ class ProjectNode extends StatelessWidget {
 
 List<ProjectNode> projects = [
   ProjectNode(
+    name: "Re/Place",
+    imgDir: "assets/images/rp.jpg",
+    description: "A remake of r/Place.",
+    linkToProject: "https://replace-frontend.vercel.app/",
+    linkToSourceCode: "https://github.com/cmoyates/RePlace-Frontend",
+  ),
+  ProjectNode(
     name: "Social Network",
     imgDir: "assets/images/sn.jpg",
     description: "This is a simple social network made with React and Material UI.",
